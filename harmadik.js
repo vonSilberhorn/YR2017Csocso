@@ -99,9 +99,14 @@ function playMatch(fixtures) {
         document.getElementById('fordulok').disabled = true;
         return; // ha már nincs több forduló, akkor alertezés után kiugrik a függvényből
     }
-    nodeStanding.innerHTML = '';
+    //nodeStanding.innerHTML = '';
     var seasonRound = fixtures.shift(); // itt vágjuk le az első elemet (fordulót), aminek lejátsszuk a meccseit
-
+    for (var i = 0; i < seasonRound.length; i++){
+        var temp2 = i + 1 + 'asztal6';
+        var temp4 = i + 1 + 'asztal12';
+        document.getElementById(temp2).innerText = '0';
+        document.getElementById(temp4).innerText = '0';
+        }
     for (var i = 0; i < seasonRound.length; i++) { // hozzáadogatjuk a kirandomolt eredményt a csapatobjektumokhoz (amikben fordulóról fordulóra összeadódik a csapat...
         var goalScored = Math.round(Math.random() * 10); //...összeredménye), illetve hozzáadjuk a gólok számát az meccspárok objektumának utolsó két eleméhez, hogy...
         if ((seasonRound[i].homeTeam.nev1 == 'Mező Imre' && seasonRound[i].homeTeam.nev2 == 'Koncz Gergely') || 
@@ -135,16 +140,22 @@ function playMatch(fixtures) {
         var temp3 = i + 1 + 'asztal11';
         var temp4 = i + 1 + 'asztal12';
         document.getElementById(temp1).innerText = seasonRound[i].homeTeam.nev1 + ' & ' + seasonRound[i].homeTeam.nev2;
-        document.getElementById(temp2).innerText = seasonRound[i].homeGoals;
         document.getElementById(temp3).innerText = seasonRound[i].awayTeam.nev1 + ' & ' + seasonRound[i].awayTeam.nev2;
+        setTimeout(function() {
+            for (var i = 0; i < seasonRound.length; i++){  // az eredményeket 1 másodperccel késleltetve jelenitjük meg
+        var temp2 = i + 1 + 'asztal6';
+        var temp4 = i + 1 + 'asztal12';
+        document.getElementById(temp2).innerText = seasonRound[i].homeGoals;
         document.getElementById(temp4).innerText = seasonRound[i].awayGoals;
+        }}, 1000);
     }
     // mostanra futott le a ciklus, ez lejátszott 5 meccset és kiirta az eredményeket az öt asztahoz
     standings.push(seasonRound); // hozzáadjuk a forduló eredményeit a standings tömbhöz
     protoTable(standings); // a standingsre ráhivjuk a protoTable függvényt, hogy sorbarendezze a csapatokat (lásd lentebb).A függvény...
     // ... returnja a tiz csapatból álló tömb lesz, pontok és gólkülönbség szerint sorbarendezve (tableIter a return változó neve)
-    showTable(tableIter); // a protoTable returnjére ráhivjuk ezt a függvényt, ami kipakolja az aktuális forduló utáni állást html-be.
+    showTable(tableIter);  // a protoTable returnjére ráhivjuk ezt a függvényt, ami kipakolja az aktuális forduló utáni állást html-be.
 }
+
 
 function protoTable(standings) { // ez összerendezi nekünk az eredményeket pontok szerint csökkenő sorrendben (ami a tabellához kell)
     var tableGen = standings[0]; // kiválasztjuk a standings nulladik elemét. Ez mindig megfelelő lesz, mivel a nulladik elem csapatobjektumaiban sosem csak az...
@@ -174,9 +185,13 @@ function protoTable(standings) { // ez összerendezi nekünk az eredményeket po
     return tableIter; // végül visszaadjuk az aktuális forduló után a sorba rendezett állást
 }
 
-function showTable(tableIter) { // az aktuális forduló utáni sorba rendezett állást megjelenitjük html-ben.
+function showTable(tableIter) { // az aktuális forduló utáni sorba rendezett állást megjelenitjük html-ben 1 másodperccel késleltetve
+    setTimeout(function() {
+        document.getElementById('eredmeny').innerHTML= '';
+    }, 1000);
+    setTimeout(function() {
     for (i = 0; i < tableIter.length; i++) {
-        nodeStanding.innerHTML += '<tr>' +
+        document.getElementById('eredmeny').innerHTML += '<tr>' +
             '<td>' + (i + 1) + '</td>' +
             '<td align="left" width="350px">' + tableIter[i].nev1 + ' & ' + tableIter[i].nev2 + ' </td>' +
             '<td>' + (tableIter[i].won + tableIter[i].draw + tableIter[i].lost) + '</td>' + 
@@ -188,7 +203,9 @@ function showTable(tableIter) { // az aktuális forduló utáni sorba rendezett 
             '<td> ' + (tableIter[i].scored - tableIter[i].conceded) + ' </td>' +
             '<td> ' + tableIter[i].points + ' </td>' +
             '</tr>'
+        }
     }
+    ,1000)    
 }
 
 // pici jquery a h1 kiiratásához
