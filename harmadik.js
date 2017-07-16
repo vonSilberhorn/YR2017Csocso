@@ -86,8 +86,8 @@ function fixtureAlgorithm(teams) {
     nodeFixtures.innerText = 'KÉSZ A SZEZON SORSOLÁSA!' // lefut a for i ciklus, kiirjuk html-be, hogy kész a sorsolás
     document.getElementById('generator').disabled = true; // kikapcsoljuk a csapatgeneráló gombot, hogy a szezon sorsolása után ne lehessen új csapatokat létrehozni
     document.getElementById('szezon').disabled = true; // kikapcsoljuk a szezon sorsolás gombot is, hogy ne lehessen újra sorsolni (amúgy ugyanaz jönne ki mindig)
-    document.getElementById('fordulok').disabled = false;
-    return fixtures; // a fixtures egy 9 elemű tömb, amiben minden elem egy-egy forduló, a fordulókon belül minden elem egy-egy párositás
+    document.getElementById('fordulok').disabled = false; // kattinthatóvá tesszük a fordulók lejátszása gombot
+    return fixtures; // a fixtures egy 18 elemű tömb, amiben minden elem egy-egy forduló, a fordulókon belül minden elem egy-egy párositás
     // ezt a fixtures tömböt fogja a playMatch függvény (az egyes fordulók lejátszásához) használni, mégpedig úgy, hogy mindig levágja a fixtures ...
     // ... tömb első elemét
 }
