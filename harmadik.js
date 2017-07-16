@@ -38,7 +38,7 @@ function teamCreator(players) {
         var rand2 = Math.floor(Math.random() * playersnew.length); // random kiválasztunk még egy nevet
         var player2spl = playersnew.splice(rand2, 1); // ezt is gyors kivesszük, és akkor kész is egy csapat, két ember nevével
         if ((player1spl[0] == 'Mező Imre' && player2spl[0] == 'Koncz Gergely') || (player2spl[0]=='Mező Imre' && player1spl[0] == 'Koncz Gergely')){
-            document.getElementById('generator').disabled = true;
+            document.getElementById('generator').disabled = true;  // ha a két tanár egy csapatba kerül, akkor már nem lehet újra csapatokat osztani
         }
         teams.push({ // egy csapat objektum igy fog kinézni: nevek, pontok, nyert-vesztett-döntetlen meccsek száma, lőtt és kapott gólok
             nev1: player1spl[0],
@@ -106,7 +106,7 @@ function playMatch(fixtures) {
         var goalScored = Math.round(Math.random() * 10); //...összeredménye), illetve hozzáadjuk a gólok számát az meccspárok objektumának utolsó két eleméhez, hogy...
         if ((seasonRound[i].homeTeam.nev1 == 'Mező Imre' && seasonRound[i].homeTeam.nev2 == 'Koncz Gergely') || 
             (seasonRound[i].homeTeam.nev2 =='Mező Imre' && seasonRound[i].homeTeam.nev1 == 'Koncz Gergely')){
-            var goalScored = Math.round(Math.random() * 8);
+            var goalScored = Math.round(Math.random() * 8); // hogy egy icipicit lejtsen azért a pálya :D 
         }
         var goalConceded = (10 - goalScored); // ... azt jelenitsük majd meg az aktuális fordulóban a html-ben. Ezt csinálja végig a for i ciklus if, else if, ...
         seasonRound[i].homeGoals = goalScored // ... else ágaival, ahol az if a hazai csapat győzelme, az else if az idegenbeli csapat győzelme, az else ...
