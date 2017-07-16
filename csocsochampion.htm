@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <link rel="stylesheet" type="text/css" href="csocsochampion.css">
+  <title>Csocsó Bajnokság</title>
+  <meta charset='utf-8'>
+ </head>
+ <body>
+	 <header><h1>YellowRoad Csocsóbajnokság 2017</h1></header>
+	 <div>
+  <button type='button' id='generator' onclick='teamCreator(players);'>Sorsoljunk csapatokat!</button>
+  <button type='button' id='szezon' disabled="disabled" onclick='fixtureAlgorithm(teams);'>Szezonsorsolás </button>
+  <button type='button' id='fordulok' disabled="disabled" onclick='playMatch(fixtures);'>Következő forduló!</button>
+	 </div>
+     <br>
+	<h2>Résztvevő csapatok</h2>
+	<div id= 'csapatok'>
+	</div>
+	<h2 id = 'sorsolas'></h2>
+	<div>
+	<table id="asztal1" class='tables'>
+		<tr>
+		 <th id="1asztal1" colspan="3">A Asztal</th>
+		</tr>
+		<tr>
+		 <td id='1asztal4' colspan="2"></td>
+		 <td id='1asztal6' class ='matchScore'></td>
+		</tr>
+		<tr>
+		 <td id="1asztal7" colspan="3" class='tableBGround'><img src="csocsoasztal1.png"></td>
+		</tr>
+		<tr>
+		 <td id="1asztal10" colspan="2"></td>
+		 <td id="1asztal12" class ='matchScore'></td>
+		</tr>
+		<tr>
+			<th colspan="3">A Asztal</th>
+		</tr>
+	</table>
+	<table id="asztal2" class='tables'>
+		<tr>
+		 <th id="2asztal1" colspan="3">C Asztal</th>
+		</tr>
+		<tr>
+		 <td id='2asztal4' colspan="2"></td>
+		 <td id='2asztal6' class ='matchScore'></td>
+		</tr>
+		<tr>
+		 <td id="2asztal7" colspan="3" class='tableBGround'><img src="csocsoasztal1.png"></td>
+		</tr>
+		<tr>
+		 <td id="2asztal10" colspan="2"></td>
+		 <td id="2asztal12" class ='matchScore'></td>
+		</tr>
+		<tr>
+			<th colspan="3">C Asztal</th>
+		</tr>
+	</table>
+	</div> 
+	<div>
+	<table id="asztal3" class='tables'>
+		<tr>
+		 <th id="3asztal1" colspan="3">B Asztal</th>
+		</tr>
+		<tr>
+		<td id='3asztal4' colspan="2"></td> 
+		 <td id='3asztal6' class ='matchScore'></td>
+		</tr>
+		<tr>
+		 <td id="3asztal7" colspan="3" class='tableBGround'><img src="csocsoasztal1.png"></td>
+		</tr>
+		<tr>
+		 <td id="3asztal10" colspan="2"></td>
+		 <td id="3asztal12" class ='matchScore'></td>
+		</tr>
+		<tr>
+			<th colspan="3">B Asztal</th>
+		</tr>
+	</table>
+	</div>
+    <div>
+	<table id="asztal4" class='tables'>
+		<tr>
+		 <th id="4asztal1" colspan="3">D Asztal</th>
+		</tr>
+		<tr>
+		 <td id='4asztal4' colspan="2"></td>
+		 <td id='4asztal6' class ='matchScore'></td>
+		</tr>
+		<tr>
+		 <td id="4asztal7" colspan="3" class='tableBGround'><img src="csocsoasztal1.png"></td>
+		</tr>
+		<tr>
+		 <td id="4asztal10" colspan="2"></td>
+		 <td id="4asztal12" class ='matchScore'></td>
+		</tr>
+		<tr>
+			<th colspan="3">D Asztal</th>
+		</tr>
+	</table>
+	<table id="asztal5" class='tables'>
+		<tr>
+		 <th id="4asztal1" colspan="3">E Asztal</th>
+		</tr>
+		<tr>
+		 <td id='5asztal4' colspan="2"></td>
+		 <td id='5asztal6' class ='matchScore'></td>
+		</tr>
+		<tr>
+		 <td id="5asztal7" colspan="3" class='tableBGround'><img src="csocsoasztal1.png"></td>
+		</tr>
+		<tr>
+		 <td id="5asztal10" colspan="2"></td>
+		 <td id="5asztal12" class ='matchScore'></td>
+		</tr>
+		<tr>
+			<th colspan="3">E Asztal</th>
+		</tr>
+	</table>
+	</div>
+	<h1>Eredmények:</h1>
+	<div id='empty'></div>
+	<hr>
+	<div>
+	<table id='seasonTable'>
+	  <thead>
+	    <th>Helyezés</th>
+	    <th>Csapatok</th>
+		<th>Meccsek</th>
+		<th>Győzelem</th>
+		<th>Döntetlen</th>
+		<th>Vereség</th>
+		<th>Lőtt gólok</th>
+		<th>Kapott gólok</th>
+		<th>Gólkülönbség</th>
+		<th>Pontszám</th>
+	  </thead>
+	  <tbody id = 'eredmeny'>
+	  </tbody>
+	</table>
+	</div>
+    <hr>
+	<script type="text/javascript" src="harmadik.js"></script>
+ </body>
+</html>
