@@ -1,123 +1,224 @@
-html{
-	background-color:#F0F8FF;
-	
+* {
+    //border: red solid;
 }
-body{
-	font: Helvetica;
-	margin: auto;
-	width: 1250px;
-	color: darkblue;
+
+.p1 {
+    visibility: hidden;
 }
-div, h1, h2{
-	text-align: center;
-	width: 99%;
-	margin: auto;
+
+html {
+    background-color: #fff;
+    font-family: Roboto, Helvetica Neue, sans-serif;
+    background-color: #02022D;
+    color: white;
+    position: static;
 }
-h1{
-	font-weight: bold;
-	font-size: 50px;
+
+#header01 {
+    height: 10px;
+    width: auto;
+    margin: 0px auto;
+    text-align: center;
+    padding: 0px 0px;
 }
-span{
-	font-weight: bold;
+
+#csapatok01 {
+    height: 470px;
+    margin-top: 26px;
+    padding: 16px 0px;
+    text-align: center;
+    background-image: url(http://www.foosballreviews.com/foosball-video-picture.jpg);
+    background-position: center center;
+    background-size: cover;
+    
 }
-button{
-	/*font-weight: bold;*/
-	background-color: lightblue;
-	color: darkblue;
-	border: solid darkblue;
-	border-radius: 18px;
-	width: 180px;
-	height: 50px;
+#csapatok {
+    display: none;
+    margin-top:40px;
+    line-height: 1.5;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 22px;
+    background: rgba(2,66,46,0.6);
+    padding: 28px;
 }
-button:hover:enabled{
-	font-weight: bolder;
-	background-color: honeydew;
-	color: black;
-	border: solid darkblue;
-	border-radius: 18px;
-	width: 180px;
-	height: 50px;
-	box-shadow:20px;
+
+#sorsolas01 #sorsolas {
+    
+    height: 38px;
+    padding: 16px 0px;
+    color: #02422D;
+    background: #F0F0F0;
+    border: 1px solid #CCC;
+    width: auto;
+    margin: 0px auto;
+    text-align: center;
 }
-button:disabled{
-	opacity: 0.5;
-	background-color: lightblue;
-	color: darkblue;
-	border: solid darkblue;
-	border-radius: 18px;
-	width: 180px;
-	height: 50px;
-}
-#csapatok{
-	border: solid grey;
-	border-radius: 40px;
-	margin: auto;
-	padding: 15px;
-	background-color: powderblue;
+
+#esemenyter {
+    
+    height: 590px;
+    padding: 50px 0px;
+    text-align: center;
+    background-image: url(https://image.freepik.com/free-vector/table-soccer-players_23-2147507076.jpg);
+    opacity: 1;
 }
 
 #asztal1{
-	margin: auto;
-	float: left;
+    background-color: rgba(46, 139, 87, 0.9);
 }
-
-#asztal2{
-	margin: auto;
-	float: right;
-}
-
 #asztal3{
-	margin: auto;
+    background-color: rgba(46, 139, 87, 0.9);
 }
-
-#asztal4{
-	margin: auto;
-	float: left;
-}
-
 #asztal5{
-	margin: auto;
-	float: right;
+    background-color: rgba(46, 139, 87, 0.9);
+}
+#asztal2{
+    background-color: rgba(46, 139, 87, 1);
+}
+#asztal4{
+    background-color: rgba(46, 139, 87, 1);
+}
 
-}
-img{
-	height: 150px;
+.table {
+    height: 115px;
+    width: 350px;
+    text-align: center;
+    width: 70%;
+    margin-left: 15%;
+    margin-right: 15%;
+    
 }
 
-.tableBGround{
-	background-color: white;
+table.center {
+    width: 40%;
+    margin-left: 30%;
+    margin-right: 30%;
 }
-.matchScore{
-	width: 30px;
-	height: 30px;
-	text-shadow: 5px;
-	background-color: black;
-	color: white;
-	border-radius: 8px;
+
+table.center02 {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    text-align: center;
 }
-.tables{
-	width: 380px;
-	height: 150px;
-	background-color: tan;
-	border-radius: 30px;
-	border: solid black;
+
+
+th{
+    background-color: darkslategray;
 }
-#seasonTable tbody tr:nth-child(1) {
-	background-color: gold;
+
+td{
+    height: 35px;
 }
-#seasonTable tbody tr:nth-child(2) {
-	background-color: silver;
+tr:nth-child(even){background-color: seagreen}
+
+h1 {
+    color: #ffffff;
+    font-family: 'Raleway', sans-serif;
+    font-size: 62px;
+    font-weight: 800;
+    line-height: 72px;
+    margin: 0 0 -30px;
+    text-align: center;
+    text-transform: uppercase;
+    
 }
-#seasonTable tbody tr:nth-child(3) {
-	background-color: #cd7f32;
+
+h2, h4 {
+    color: #ffffff;
+    font-family: 'Raleway', sans-serif;
+    font-size: 25px;
+    font-weight: 800;
+    line-height: 36px;
+    margin: 0 0 24px;
+    text-align: center;
 }
-#seasonTable {
-	align-content: center;
-	border: solid black;
-	border-radius: 20px;
-	background-color:lightcyan;
-	margin: auto;
+
+h4 {
+    font-size: 15px;
 }
-#empty{
-	height: 220px;
+
+
+p {
+    color: #f8f8f8;
+    font-family: 'Raleway', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 32px;
+    margin: 0 0 24px;
+}
+
+a {
+    color: #c8c8c8;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #1c1c1c;
+    text-decoration: underline;
+}
+
+.button {
+    position: fixed;
+    top: 6px;
+    color: white;
+    font-size: 126%;
+    width: 54px;
+    padding: 14px;
+    background-color: rgba(255,255,255,1);
+    border: none;
+    cursor: pointer;
+    
+}
+
+.button:hover {
+    background-color: rgba(255,255,255,0.5);
+}
+
+.fixed {
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    width: 200px;
+}
+
+.fixed02 {
+    position: fixed;
+    bottom: 35%;
+    right: 6px;
+    height: 275px;
+    width: 50px;
+}
+
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 20px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-google {
+  background: #dd4b39;
+  color: white;
+}
+
+.fa-linkedin {
+  background: #007bb5;
+  color: white;
+}
+
+.fa-youtube {
+  background: #bb0000;
+  color: white;
 }
