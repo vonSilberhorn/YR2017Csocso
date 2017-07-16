@@ -226,3 +226,6 @@ a:hover {
   background: #bb0000;
   color: white;
 }
+.matchResult{
+    width: 30px;
+}
