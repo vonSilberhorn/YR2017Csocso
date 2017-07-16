@@ -1,0 +1,123 @@
+html{
+	background-color:#F0F8FF;
+	
+}
+body{
+	font: Helvetica;
+	margin: auto;
+	width: 1250px;
+	color: darkblue;
+}
+div, h1, h2{
+	text-align: center;
+	width: 99%;
+	margin: auto;
+}
+h1{
+	font-weight: bold;
+	font-size: 50px;
+}
+span{
+	font-weight: bold;
+}
+button{
+	/*font-weight: bold;*/
+	background-color: lightblue;
+	color: darkblue;
+	border: solid darkblue;
+	border-radius: 18px;
+	width: 180px;
+	height: 50px;
+}
+button:hover:enabled{
+	font-weight: bolder;
+	background-color: honeydew;
+	color: black;
+	border: solid darkblue;
+	border-radius: 18px;
+	width: 180px;
+	height: 50px;
+	box-shadow:20px;
+}
+button:disabled{
+	opacity: 0.5;
+	background-color: lightblue;
+	color: darkblue;
+	border: solid darkblue;
+	border-radius: 18px;
+	width: 180px;
+	height: 50px;
+}
+#csapatok{
+	border: solid grey;
+	border-radius: 40px;
+	margin: auto;
+	padding: 15px;
+	background-color: powderblue;
+}
+
+#asztal1{
+	margin: auto;
+	float: left;
+}
+
+#asztal2{
+	margin: auto;
+	float: right;
+}
+
+#asztal3{
+	margin: auto;
+}
+
+#asztal4{
+	margin: auto;
+	float: left;
+}
+
+#asztal5{
+	margin: auto;
+	float: right;
+
+}
+img{
+	height: 150px;
+}
+
+.tableBGround{
+	background-color: white;
+}
+.matchScore{
+	width: 30px;
+	height: 30px;
+	text-shadow: 5px;
+	background-color: black;
+	color: white;
+	border-radius: 8px;
+}
+.tables{
+	width: 380px;
+	height: 150px;
+	background-color: tan;
+	border-radius: 30px;
+	border: solid black;
+}
+#seasonTable tbody tr:nth-child(1) {
+	background-color: gold;
+}
+#seasonTable tbody tr:nth-child(2) {
+	background-color: silver;
+}
+#seasonTable tbody tr:nth-child(3) {
+	background-color: #cd7f32;
+}
+#seasonTable {
+	align-content: center;
+	border: solid black;
+	border-radius: 20px;
+	background-color:lightcyan;
+	margin: auto;
+}
+#empty{
+	height: 220px;
+}
