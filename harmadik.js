@@ -178,7 +178,7 @@ function showTable(tableIter) { // az aktuális forduló utáni sorba rendezett 
     for (i = 0; i < tableIter.length; i++) {
         nodeStanding.innerHTML += '<tr>' +
             '<td>' + (i + 1) + '</td>' +
-            '<td align="left" width="300px">' + tableIter[i].nev1 + ' & ' + tableIter[i].nev2 + ' </td>' +
+            '<td align="left" width="350px">' + tableIter[i].nev1 + ' & ' + tableIter[i].nev2 + ' </td>' +
             '<td>' + (tableIter[i].won + tableIter[i].draw + tableIter[i].lost) + '</td>' + 
             '<td> ' + tableIter[i].won + ' </td>' +
             '<td> ' + tableIter[i].draw + ' </td>' +
