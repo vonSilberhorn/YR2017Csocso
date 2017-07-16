@@ -21,7 +21,6 @@ var players = [
 'Koncz Gergely'];
 
 var standings = [];
-var nodeStanding = document.getElementById('eredmeny');
 var teams = [];
 var fixtures = [];
 var tableIter = [];
@@ -83,7 +82,7 @@ function fixtureAlgorithm(teams) {
         // a következő fordulóhoz elforgatjuk a teams elemeit úgy, hogy levágjuk az utolsót és betesszük az első után -ezt felezi meg fentebb a for i ciklus kapásból
         teams.splice(1, 0, teams.pop());
     }
-    nodeFixtures.innerText = 'KÉSZ A SZEZON SORSOLÁSA!' // lefut a for i ciklus, kiirjuk html-be, hogy kész a sorsolás
+    nodeFixtures.innerText = 'KÉSZ A SZEZON SORSOLÁSA! GÖRGESS LEJJEBB AZ ASZTALOKHOZ! :-)' // lefut a for i ciklus, kiirjuk html-be, hogy kész a sorsolás
     document.getElementById('generator').disabled = true; // kikapcsoljuk a csapatgeneráló gombot, hogy a szezon sorsolása után ne lehessen új csapatokat létrehozni
     document.getElementById('szezon').disabled = true; // kikapcsoljuk a szezon sorsolás gombot is, hogy ne lehessen újra sorsolni (amúgy ugyanaz jönne ki mindig)
     document.getElementById('fordulok').disabled = false; // kattinthatóvá tesszük a fordulók lejátszása gombot
@@ -99,9 +98,9 @@ function playMatch(fixtures) {
         document.getElementById('fordulok').disabled = true;
         return; // ha már nincs több forduló, akkor alertezés után kiugrik a függvényből
     }
-    //nodeStanding.innerHTML = '';
+    document.getElementById('fordulok').disabled= true; // kikapcsoljuk a gombot amit épp megnyomtunk, hogy a lefutás végéig ne lehessen nyomkorászni
     var seasonRound = fixtures.shift(); // itt vágjuk le az első elemet (fordulót), aminek lejátsszuk a meccseit
-    for (var i = 0; i < seasonRound.length; i++){
+    for (var i = 0; i < seasonRound.length; i++){  // az eredményeket defaultra állitjuk, ennek a késleltetett eredménykiirás miatt van jelentősége
         var temp2 = i + 1 + 'asztal6';
         var temp4 = i + 1 + 'asztal12';
         document.getElementById(temp2).innerText = '0';
@@ -110,8 +109,8 @@ function playMatch(fixtures) {
     for (var i = 0; i < seasonRound.length; i++) { // hozzáadogatjuk a kirandomolt eredményt a csapatobjektumokhoz (amikben fordulóról fordulóra összeadódik a csapat...
         var goalScored = Math.round(Math.random() * 10); //...összeredménye), illetve hozzáadjuk a gólok számát az meccspárok objektumának utolsó két eleméhez, hogy...
         if ((seasonRound[i].homeTeam.nev1 == 'Mező Imre' && seasonRound[i].homeTeam.nev2 == 'Koncz Gergely') || 
-            (seasonRound[i].homeTeam.nev2 =='Mező Imre' && seasonRound[i].homeTeam.nev1 == 'Koncz Gergely')){
-            var goalScored = Math.round(Math.random() * 8); // hogy egy icipicit lejtsen azért a pálya :D 
+            (seasonRound[i].homeTeam.nev2 == 'Mező Imre' && seasonRound[i].homeTeam.nev1 == 'Koncz Gergely')){
+            var goalScored = Math.round(Math.random() * 8); // ez csak hogy egy icipicit lejtsen azért a pálya :D 
         }
         var goalConceded = (10 - goalScored); // ... azt jelenitsük majd meg az aktuális fordulóban a html-ben. Ezt csinálja végig a for i ciklus if, else if, ...
         seasonRound[i].homeGoals = goalScored // ... else ágaival, ahol az if a hazai csapat győzelme, az else if az idegenbeli csapat győzelme, az else ...
@@ -134,11 +133,9 @@ function playMatch(fixtures) {
             seasonRound[i].awayTeam.points += 1;
             seasonRound[i].awayTeam.draw += 1;
         }
-        // eddigre lejátszottunk egy meccset, aminek az eredményeit kiirjuk html-be a megfelelő asztalokhoz (még a for i ciklusban vagyunk)
+        // eddigre lejátszottunk egy meccset, aminek a csapatokat kiirjuk html-be a megfelelő asztalokhoz (még a for i ciklusban vagyunk)
         var temp1 = i + 1 + 'asztal5';
-        var temp2 = i + 1 + 'asztal6';
         var temp3 = i + 1 + 'asztal11';
-        var temp4 = i + 1 + 'asztal12';
         document.getElementById(temp1).innerText = seasonRound[i].homeTeam.nev1 + ' & ' + seasonRound[i].homeTeam.nev2;
         document.getElementById(temp3).innerText = seasonRound[i].awayTeam.nev1 + ' & ' + seasonRound[i].awayTeam.nev2;
         setTimeout(function() {
@@ -147,6 +144,7 @@ function playMatch(fixtures) {
         var temp4 = i + 1 + 'asztal12';
         document.getElementById(temp2).innerText = seasonRound[i].homeGoals;
         document.getElementById(temp4).innerText = seasonRound[i].awayGoals;
+        document.getElementById('fordulok').disabled= false; // visszaállitjuk a gombot kattinthatóra
         }}, 1000);
     }
     // mostanra futott le a ciklus, ez lejátszott 5 meccset és kiirta az eredményeket az öt asztahoz
@@ -187,9 +185,7 @@ function protoTable(standings) { // ez összerendezi nekünk az eredményeket po
 
 function showTable(tableIter) { // az aktuális forduló utáni sorba rendezett állást megjelenitjük html-ben 1 másodperccel késleltetve
     setTimeout(function() {
-        document.getElementById('eredmeny').innerHTML= '';
-    }, 1000);
-    setTimeout(function() {
+    document.getElementById('eredmeny').innerHTML= '';
     for (i = 0; i < tableIter.length; i++) {
         document.getElementById('eredmeny').innerHTML += '<tr>' +
             '<td>' + (i + 1) + '</td>' +
@@ -224,7 +220,7 @@ function changeText(cont1,cont2,speed){
 		var Otimer=setInterval(show,speed);	
 };
 $(document).ready(function(){
-	changeText($(".p1"),$(".p2"),100); //  150 = the Delay time in milliseconds between strokes.
+	changeText($(".p1"),$(".p2"),100); 
 	clearInterval(Otimer);
 });
 
