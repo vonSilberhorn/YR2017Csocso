@@ -24,6 +24,7 @@ var standings = [];
 var teams = [];
 var fixtures = [];
 var tableIter = [];
+
 // a játékosokból generálunk random csapatokat objektumként, és minden csapatot pusholunk a teams tömbbe
 function teamCreator(players) {
     var teamsNode = document.getElementById('csapatok');
@@ -157,7 +158,9 @@ function playMatch(fixtures) {
 
 function protoTable(standings) { // ez összerendezi nekünk az eredményeket pontok szerint csökkenő sorrendben (ami a tabellához kell)
     var tableGen = standings[0]; // kiválasztjuk a standings nulladik elemét. Ez mindig megfelelő lesz, mivel a nulladik elem csapatobjektumaiban sosem csak az...
-    tableIter = []; // ... adott forduló eredményei vannak, hanem abban mindig a csapatok adott fordulóig meglévő összeredménye szerepel
+                                 // ... adott forduló eredményei vannak, hanem abban mindig a csapatok adott fordulóig meglévő összeredménye szerepel
+    // var tableGen = standings.slice(-1)[0]; ---- de miért nem csak ez a verzió műküdik, amikor levesszük a tömb utolsó elemét???? Hisz abban van az összeredmény!!!
+    tableIter = [];
     for (var k = 0; k < tableGen.length; k++) { // kivesszük a csapatobjektumokat egy tömbbe, ahol csak a csapatobjektumok fognak szerepelni
         tableIter.push(tableGen[k].awayTeam);
         tableIter.push(tableGen[k].homeTeam);
